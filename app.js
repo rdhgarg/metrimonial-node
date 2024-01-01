@@ -1,28 +1,23 @@
-const mysql = require('mysql2');
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
 
-// Create a connection pool
-const pool = mysql.createPool({
-  host: '127.0.0.1',
-  user: 'gaurang',
-  password: 'work@2024',
-  database: 'gaurang',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: '68.178.158.76',
+  user: 'gaurang_new',
+  password: 'work@2023',
+  database: 'gaurang_new',
+  port: 3306, // Default MySQL port
 });
 
-pool.query('SELECT * FROM projects', (error, results) => {
-  if (error) throw error;
 
-  // Log the fetched data
-  console.log('Projects:', results);
+connection.connect((error) => {
+  if (error) {
+    console.error('Error connecting to live database:', error);
+    return;
+  }
+  console.log('Connected to live database.');
 
-  // Close the connection pool when the application is terminated
-  process.on('SIGINT', () => {
-    pool.end();
-    console.log('Connection pool closed.');
-  });
+  // Your database queries or other logic here
+
+  connection.end();
 });
