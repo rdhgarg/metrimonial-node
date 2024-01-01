@@ -5,7 +5,7 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-const PORT = process.env.PORT || 6000;
+const PORT = "https://matchmakers.onrender.com/";
 app.listen(PORT, () => {
   console.log(`Matckmakers Server is running on port ${PORT}`);
 });
