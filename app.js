@@ -4,7 +4,7 @@ const app = express();
 
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: '68.178.158.76',
+  host: '127.0.0.1',
   user: 'gaurang_new',
   password: 'work@2023',
   database: 'gaurang_new',
@@ -13,7 +13,7 @@ const pool = mysql.createPool({
 
 // Define a route to get all courses
 app.get('/api/product', (req, res) => {
-  const sqlQuery = 'SELECT * FROM users';
+  const sqlQuery = 'SELECT * FROM project';
 
   pool.query(sqlQuery, (error, results) => {
     if (error) {
@@ -26,6 +26,20 @@ app.get('/api/product', (req, res) => {
   });
 });
 
+
+app.get('/api/user', (req, res) => {
+  const sqlQuery = 'SELECT * FROM users';
+
+  pool.query(sqlQuery, (error, results) => {
+    if (error) {
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+      return;
+    }
+
+    res.json({ products: results });
+  });
+});
 // Define a route for the root endpoint
 app.get('/', (req, res) => {
   res.send('Hello, this is the root endpoint.');
