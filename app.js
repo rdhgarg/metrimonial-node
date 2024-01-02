@@ -4,10 +4,10 @@ const app = express();
 
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: '68.178.158.76',
-  user: 'gaurang_new',
-  password: 'work@2023',
-  database: 'gaurang_new',
+  host: '68.178.146.195',
+  user: 'gaurang',
+  password: 'work@2024',
+  database: 'gaurang',
   port: 3306,
 });
 
