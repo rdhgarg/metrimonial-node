@@ -2,13 +2,12 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: '68.178.158.76',
-  user: 'gaurang_new',
-  password: 'work@2023',
-  database: 'gaurang_new',
+  host: 'learnnprepdb.cuml7mxd9x3f.ap-south-1.rds.amazonaws.com',
+  user: 'learnnprep',
+  password: 'learnnprep2024',
+  database: 'lmsdb',
   port: 3306, // Default MySQL port
 });
-
 
 connection.connect((error) => {
   if (error) {
