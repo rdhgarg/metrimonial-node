@@ -35,7 +35,7 @@ function sendSMS(mobile, otp) {
 app.get('/api/courses', (req, res) => {
   const sqlQuery = 'SELECT * FROM courses';
 
-  connection.query(sqlQuery, (error, results) => {
+  pool.query(sqlQuery, (error, results) => {
     if (error) {
       console.error('Error executing query:', error);
       res.status(500).json({ error: 'Internal Server Error' });
