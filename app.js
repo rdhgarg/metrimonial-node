@@ -31,6 +31,20 @@ function sendSMS(mobile, otp) {
   console.log(`Sending OTP ${otp} to ${mobile}`);
 }
 
+
+app.get('/api/courses', (req, res) => {
+  const sqlQuery = 'SELECT * FROM courses';
+
+  connection.query(sqlQuery, (error, results) => {
+    if (error) {
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+      return;
+    }
+
+    res.json({ courses: results });
+  });
+});
 app.get('/api/v1/login', (req, res) => {
   try {
     const { country_code, mobile, device_key } = req.body;
