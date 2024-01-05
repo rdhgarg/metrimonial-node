@@ -5,24 +5,24 @@ const randomstring = require('randomstring');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');  // Don't forget to require jsonwebtoken
 
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'matrimonial-laravel',
-  port: 3306,
-});
-
-
 //const pool = mysql.createPool({
 //  connectionLimit: 10,
-//  host: '68.178.146.195',
-//  user: 'gaurang',
-//  password: 'work@2024',
-//  database: 'gaurang',
+//  host: 'localhost',
+//  user: 'root',
+//  password: '',
+//  database: 'matrimonial-laravel',
 //  port: 3306,
 //});
+
+
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: '68.178.146.195',
+  user: 'gaurang',
+  password: 'work@2024',
+  database: 'gaurang',
+  port: 3306,
+});
 app.use(bodyParser.json());
 const users = {};
 
@@ -31,7 +31,7 @@ function sendSMS(mobile, otp) {
   console.log(`Sending OTP ${otp} to ${mobile}`);
 }
 
-app.post('/api/v1/login', (req, res) => {
+app.get('/api/v1/login', (req, res) => {
   try {
     const { country_code, mobile, device_key } = req.body;
 
