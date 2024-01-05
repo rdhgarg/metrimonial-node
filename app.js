@@ -18,11 +18,13 @@ const jwt = require('jsonwebtoken');  // Don't forget to require jsonwebtoken
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: '68.178.146.195',
-  user: 'gaurang',
-  password: 'work@2024',
-  database: 'gaurang',
+  user: 'matrimonial',
+  password: 'work@2023',
+  database: 'matrimonial',
   port: 3306,
 });
+
+
 app.use(bodyParser.json());
 const users = {};
 
