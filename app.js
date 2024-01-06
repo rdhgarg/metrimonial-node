@@ -5,24 +5,24 @@ const randomstring = require('randomstring');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');  // Don't forget to require jsonwebtoken
 
-//const pool = mysql.createPool({
-//  connectionLimit: 10,
-//  host: 'localhost',
-//  user: 'root',
-//  password: '',
-//  database: 'matrimonial-laravel',
-//  port: 3306,
-//});
-
-
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: '68.178.146.195',
-  user: 'matrimonial',
-  password: 'work@2023',
-  database: 'matrimonial',
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'matrimonial-laravel',
   port: 3306,
 });
+
+
+//const pool = mysql.createPool({
+//  connectionLimit: 10,
+//  host: '68.178.146.195',
+//  user: 'gaurang',
+//  password: 'work@2024',
+//  database: 'gaurang',
+//  port: 3306,
+//});
 
 
 app.use(bodyParser.json());
